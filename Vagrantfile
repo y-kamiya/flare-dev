@@ -7,8 +7,7 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "ubuntu/trusty64"
 
-  #config.vm.network "forwarded_port", guest: 80, host: 8080
-
+  # config.vm.network "forwarded_port", guest: 80, host: 8080
   # config.vm.network "private_network", ip: "192.168.33.10"
   
   config.vm.synced_folder ".", "/vagrant", type: "rsync"
@@ -43,8 +42,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     sudo make install
 
     # install boost
-    curl -L http://sourceforge.net/projects/boost/files/latest/download?source=files > boost.tar.gz
-    tar zxvf boost.tar.gz
+    curl -O -L http://sourceforge.net/projects/boost/files/boost/1.55.0/boost_1_55_0.tar.gz
+    tar zxvf boost_1_55_0.tar.gz
     cd boost_1_55_0
     ./bootstrap.sh
     sudo ./b2 install -j2 --prefix=/usr/local/boost
