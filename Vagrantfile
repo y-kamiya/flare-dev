@@ -28,7 +28,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     sudo apt-get install -y python-dev
     # for test
     sudo apt-get install cutter-testing-framework
-
+    # for development
+    sudo apt-get install git
+    
     mkdir tmp
     chmod 777 tmp
     cd tmp
