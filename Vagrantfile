@@ -10,7 +10,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # config.vm.network "forwarded_port", guest: 80, host: 8080
   # config.vm.network "private_network", ip: "192.168.33.10"
   
-  config.vm.synced_folder ".", "/vagrant", type: "rsync"
+  #config.vm.synced_folder ".", "/vagrant", type: "rsync"
 
   config.vm.provider "virtualbox" do |vb|
     vb.customize ["modifyvm", :id, "--memory", "2048"]
@@ -28,8 +28,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     sudo apt-get install -y python-dev
     # for test
     sudo apt-get install cutter-testing-framework
+
     # for development
     sudo apt-get install git
+    sudo apt-get install devscripts
+    sudo apt-get build-dep libtokyocabinet-dev libboost-program-options-dev libboost-regex-dev libboost-serialization-dev libkyotocabinet-dev
     
     mkdir tmp
     chmod 777 tmp
